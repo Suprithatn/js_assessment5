@@ -1,0 +1,41 @@
+<html>
+    <style>
+        p{
+            border: 1px solid red;
+            padding:10px;
+        }
+        .note{
+            background-color: yellow;
+            padding:10px;
+        }
+    </style>
+    <body>
+        <p id="result"></p>
+
+        <div class="note">Note: JavaScript doesnt support multiple inheritance</div>
+
+        <script>
+            class ShoppingCart{
+                constructor(itemName){
+                    this.itemName = itemName;
+                }
+                displayItemName(){
+                    return this.itemName;
+                }
+            }
+
+            class Item extends ShoppingCart{ // Single level inheritance
+                constructor(itemName, amount){
+                    super(itemName);
+                    this.amt = amount;
+                }
+                display(){
+                    return "This " + this.displayItemName() +" costs " + this.amt + "Rs";
+                }
+            }
+
+            let newItem = new Item("Bread", 30);
+            document.getElementById("result").innerText = newItem.display();
+        </script>
+    </body>
+</html>
